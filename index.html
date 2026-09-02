@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RC Solar Solution — Smart Energy, Bright Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #0E2A47;
+    --navy-deep: #081A2E;
+    --ivory: #FBF7EE;
+    --gold: #C9962B;
+    --gold-bright: #E8B347;
+    --sun: #E1712E;
+    --leaf: #4C7A50;
+    --ink: #10233F;
+    --ink-soft: #4A5A70;
+    --line: rgba(16,35,63,0.12);
+    --max: 1120px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width: var(--max); margin: 0 auto; padding: 0 28px;}
+
+  h1,h2,h3{
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--navy-deep);
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(251,247,238,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 28px; max-width: var(--max); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-weight:800; font-size:1.05rem; color:var(--navy-deep);}
+  .brand img{height:42px; width:42px; object-fit:contain;}
+  .brand .tag{display:block; font-family:'Manrope'; font-weight:600; font-size:0.65rem; letter-spacing:0.04em; color: var(--gold); text-transform: none;}
+  nav.links{display:flex; gap:28px; font-size:0.92rem; font-weight:600;}
+  nav.links a{text-decoration:none; color: var(--ink-soft); transition: color .2s;}
+  nav.links a:hover{color: var(--navy-deep);}
+  .nav-cta{
+    background: var(--navy-deep); color: var(--ivory); border:none;
+    padding: 10px 20px; border-radius: 3px; font-weight:700; font-size:0.88rem;
+    text-decoration:none; white-space:nowrap;
+  }
+  .menu-btn{display:none; background:none; border:none; font-size:1.6rem; cursor:pointer; color: var(--navy-deep);}
+
+  @media (max-width: 860px){
+    nav.links{
+      position:fixed; inset: 66px 0 auto 0; background: var(--ivory);
+      flex-direction:column; padding: 20px 28px; gap:18px;
+      border-bottom: 1px solid var(--line);
+      transform: translateY(-120%); transition: transform .25s ease;
+    }
+    nav.links.open{transform: translateY(0);}
+    .menu-btn{display:block;}
+    .nav-cta{display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background: var(--navy-deep);
+    color: var(--ivory);
+    padding: 86px 0 0;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; align-items:center;
+    padding-bottom: 60px;
+  }
+  .hero .eyebrow{
+    color: var(--gold-bright); font-weight:700; font-size:0.85rem;
+    letter-spacing: 0.02em; margin-bottom: 18px;
+  }
+  .hero h1{
+    color: var(--ivory); font-size: clamp(2.4rem, 5vw, 3.6rem); line-height:1.06;
+    max-width: 12ch;
+  }
+  .hero h1 em{font-style: italic; color: var(--gold-bright);}
+  .hero p.lede{
+    margin-top: 22px; font-size: 1.08rem; color: rgba(251,247,238,0.78);
+    max-width: 46ch; line-height:1.6;
+  }
+  .hero .cta-row{display:flex; gap:14px; margin-top: 34px; flex-wrap:wrap;}
+  .btn-primary{
+    background: var(--gold-bright); color: var(--navy-deep); font-weight:800;
+    padding: 14px 26px; border-radius: 3px; text-decoration:none; font-size:0.95rem;
+  }
+  .btn-ghost{
+    border: 1px solid rgba(251,247,238,0.35); color: var(--ivory); font-weight:700;
+    padding: 14px 26px; border-radius: 3px; text-decoration:none; font-size:0.95rem;
+  }
+  .hero-art{position:relative; display:flex; justify-content:center; align-items:center;}
+  .hero-art svg{width:100%; max-width: 380px; height:auto;}
+
+  .hero-stats{
+    border-top: 1px solid rgba(251,247,238,0.14);
+    background: rgba(251,247,238,0.03);
+  }
+  .hero-stats .wrap{
+    display:grid; grid-template-columns: repeat(3,1fr); padding: 26px 28px;
+  }
+  .hero-stats .stat{border-left: 1px solid rgba(251,247,238,0.14); padding-left: 22px;}
+  .hero-stats .stat:first-child{border-left:none; padding-left:0;}
+  .hero-stats .stat b{display:block; font-family:'Fraunces'; font-size:1.5rem; color: var(--gold-bright); font-weight:500;}
+  .hero-stats .stat span{font-size:0.82rem; color: rgba(251,247,238,0.65);}
+
+  @media (max-width: 860px){
+    .hero .wrap{grid-template-columns: 1fr; text-align:left;}
+    .hero-art{order:-1; margin-bottom: 10px;}
+    .hero-art svg{max-width: 220px;}
+    .hero-stats .wrap{grid-template-columns: 1fr; gap:16px;}
+    .hero-stats .stat{border-left:none; padding-left:0; border-top:1px solid rgba(251,247,238,0.14); padding-top:14px;}
+    .hero-stats .stat:first-child{border-top:none; padding-top:0;}
+  }
+
+  /* ---------- Section basics ---------- */
+  section{padding: 76px 0;}
+  .section-head{max-width: 640px; margin-bottom: 44px;}
+  .section-head .kicker{color: var(--gold); font-weight:700; font-size:0.85rem; margin-bottom:10px;}
+  .section-head h2{font-size: clamp(1.7rem, 3vw, 2.3rem);}
+  .section-head p{margin-top:14px; color: var(--ink-soft); font-size:1.02rem; line-height:1.6;}
+
+  /* ---------- About / Founder ---------- */
+  .about{background: var(--ivory);}
+  .about .wrap{display:grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items:center;}
+  .founder-photo{position:relative;}
+  .founder-photo .frame{
+    border: 1px solid var(--line); padding: 14px; background: #fff;
+  }
+  .founder-photo img{width:100%; height:auto; filter: grayscale(8%);}
+  .founder-photo .cap{
+    margin-top:16px; display:flex; justify-content:space-between; align-items:baseline;
+  }
+  .founder-photo .cap b{font-family:'Fraunces'; font-size:1.15rem; color:var(--navy-deep); font-weight:500;}
+  .founder-photo .cap span{font-size:0.8rem; color: var(--ink-soft);}
+  .about-text .kicker{color: var(--gold); font-weight:700; font-size:0.85rem; margin-bottom:10px;}
+  .about-text h2{font-size: clamp(1.6rem, 3vw, 2.15rem); margin-bottom: 18px;}
+  .about-text p{color: var(--ink-soft); font-size: 1.02rem; margin-bottom: 14px; line-height:1.65; max-width: 58ch;}
+  .founded-badge{
+    display:inline-flex; gap:10px; align-items:center; margin-top: 18px;
+    border: 1px solid var(--line); padding: 10px 16px; font-size: 0.85rem; font-weight:700;
+    color: var(--navy-deep);
+  }
+  .founded-badge .dot{width:8px; height:8px; border-radius:50%; background: var(--sun);}
+
+  @media (max-width: 860px){
+    .about .wrap{grid-template-columns:1fr;}
+    .founder-photo{max-width: 320px;}
+  }
+
+  /* ---------- Solutions (On/Off/Hybrid) ---------- */
+  .solutions{background: #F3EEE0;}
+  .sol-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--line);}
+  .sol-card{
+    background: var(--ivory); padding: 34px 28px; position:relative;
+  }
+  .sol-card .tag{
+    font-size: 0.75rem; font-weight:800; letter-spacing:0.03em; margin-bottom:16px;
+    display:inline-block; padding: 5px 10px;
+  }
+  .sol-card.on .tag{background: rgba(201,150,43,0.15); color: var(--gold);}
+  .sol-card.off .tag{background: rgba(76,122,80,0.15); color: var(--leaf);}
+  .sol-card.hybrid .tag{background: rgba(225,113,46,0.15); color: var(--sun);}
+  .sol-card h3{font-size:1.3rem; margin-bottom:12px;}
+  .sol-card p{color: var(--ink-soft); font-size:0.95rem; line-height:1.6; margin-bottom:16px;}
+  .sol-card ul{list-style:none; font-size: 0.88rem; color: var(--ink);}
+  .sol-card ul li{padding: 6px 0; border-top: 1px solid var(--line);}
+  .sol-card ul li:first-child{border-top:none;}
+
+  @media (max-width: 860px){ .sol-grid{grid-template-columns: 1fr;} }
+
+  /* ---------- Segments ---------- */
+  .segments{background: var(--navy-deep); color: var(--ivory);}
+  .segments .section-head h2{color:var(--ivory);}
+  .segments .section-head p{color: rgba(251,247,238,0.7);}
+  .seg-row{display:grid; grid-template-columns: repeat(3,1fr); gap: 30px;}
+  .seg-item{border-top: 2px solid var(--gold-bright); padding-top: 20px;}
+  .seg-item h3{color: var(--ivory); font-size:1.15rem; margin-bottom:10px; font-weight:500;}
+  .seg-item p{color: rgba(251,247,238,0.68); font-size:0.92rem; line-height:1.6;}
+  @media (max-width:860px){ .seg-row{grid-template-columns:1fr; gap:26px;} }
+
+  /* ---------- Services (sequence) ---------- */
+  .services{background: var(--ivory);}
+  .service-list{border-top: 1px solid var(--line);}
+  .service-row{
+    display:grid; grid-template-columns: 70px 1fr; gap: 22px;
+    padding: 26px 0; border-bottom: 1px solid var(--line); align-items:start;
+  }
+  .service-row .num{font-family:'Fraunces'; font-size:1.5rem; color: var(--gold); font-weight:500;}
+  .service-row h3{font-size:1.08rem; margin-bottom:6px; font-weight:600; font-family:'Manrope';}
+  .service-row p{color: var(--ink-soft); font-size:0.94rem; line-height:1.55; max-width: 62ch;}
+
+  /* ---------- Why choose ---------- */
+  .why{background: #F3EEE0;}
+  .why-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;}
+  .why-item{background: var(--ivory); padding: 26px; border: 1px solid var(--line);}
+  .why-item h3{font-size:1.02rem; margin-bottom:8px; font-weight:700; font-family:'Manrope'; color: var(--navy-deep);}
+  .why-item p{color: var(--ink-soft); font-size:0.9rem; line-height:1.55;}
+  @media (max-width:860px){ .why-grid{grid-template-columns:1fr;} }
+
+  /* ---------- Mission / Vision ---------- */
+  .mv{background: var(--navy-deep); color: var(--ivory);}
+  .mv .wrap{display:grid; grid-template-columns: 1fr 1fr; gap: 2px; background: rgba(251,247,238,0.1);}
+  .mv-panel{background: var(--navy-deep); padding: 44px 8px;}
+  .mv-panel .label{color: var(--gold-bright); font-weight:700; font-size:0.85rem; margin-bottom: 16px;}
+  .mv-panel p{font-family:'Fraunces'; font-size: 1.4rem; line-height:1.4; font-weight:500; max-width: 32ch;}
+  @media (max-width:860px){ .mv .wrap{grid-template-columns:1fr;} .mv-panel{padding: 30px 4px;} }
+
+  /* ---------- Contact ---------- */
+  .contact{background: var(--ivory);}
+  .contact .wrap{display:grid; grid-template-columns: 1fr 1fr; gap: 56px;}
+  .contact-info h2{font-size: clamp(1.7rem,3vw,2.3rem); margin-bottom:18px;}
+  .contact-info p{color: var(--ink-soft); font-size:1.02rem; margin-bottom: 28px; max-width: 46ch; line-height:1.6;}
+  .contact-list{list-style:none;}
+  .contact-list li{
+    display:grid; grid-template-columns: 90px 1fr; gap: 14px; padding: 14px 0;
+    border-top: 1px solid var(--line); font-size: 0.95rem;
+  }
+  .contact-list li:first-child{border-top:none;}
+  .contact-list b{color: var(--navy-deep); font-weight:700; font-size:0.82rem; text-transform: none;}
+  .contact-list a{text-decoration:none; color: var(--ink); font-weight:600;}
+  .contact-card{
+    background: var(--navy-deep); color: var(--ivory); padding: 40px 32px;
+    display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .contact-card .brand2{display:flex; align-items:center; gap:12px; margin-bottom: 26px;}
+  .contact-card .brand2 img{height:52px; width:52px; object-fit:contain;}
+  .contact-card .brand2 b{font-family:'Fraunces'; font-size:1.3rem; font-weight:500;}
+  .contact-card h3{color: var(--ivory); font-size:1.5rem; line-height:1.35; margin-bottom: 20px; font-weight:500; max-width:20ch;}
+  .contact-card .btn-primary{align-self:flex-start;}
+
+  @media (max-width:860px){ .contact .wrap{grid-template-columns:1fr;} }
+
+  /* ---------- Footer ---------- */
+  footer{background: var(--navy-deep); color: rgba(251,247,238,0.55); border-top: 1px solid rgba(251,247,238,0.1);}
+  footer .wrap{
+    padding: 22px 28px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    font-size: 0.82rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <img src="images/logo.jpg" alt="RC Solar Solution logo">
+      <div>
+        RC Solar Solution
+        <span class="tag">SMART ENERGY · BRIGHT FUTURE</span>
+      </div>
+    </div>
+    <nav class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#services">Services</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get a Quote</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Bisanda · Banda · Uttar Pradesh</div>
+      <h1>Solar power, sized to <em>your</em> roof and your bill</h1>
+      <p class="lede">RC Solar Solution designs and installs On-Grid, Off-Grid and Hybrid solar systems for homes, shops and industries — from the first site visit to years of after-sales support.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn-primary">Get Your Solar Quote</a>
+        <a href="#solutions" class="btn-ghost">See Our Systems</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sun over a solar panel illustration">
+        <circle cx="200" cy="150" r="62" fill="#E8B347"/>
+        <g stroke="#E8B347" stroke-width="4" stroke-linecap="round">
+          <line x1="200" y1="50" x2="200" y2="22"/>
+          <line x1="200" y1="278" x2="200" y2="250"/>
+          <line x1="288" y1="150" x2="316" y2="150"/>
+          <line x1="84" y1="150" x2="112" y2="150"/>
+          <line x1="262" y1="88" x2="282" y2="68"/>
+          <line x1="118" y1="212" x2="138" y2="232"/>
+          <line x1="262" y1="212" x2="282" y2="232"/>
+          <line x1="118" y1="88" x2="138" y2="68"/>
+        </g>
+        <g transform="translate(60,230)">
+          <polygon points="0,120 280,120 250,40 30,40" fill="#12314F" stroke="#C9962B" stroke-width="2"/>
+          <g stroke="#C9962B" stroke-width="1" opacity="0.7">
+            <line x1="60" y1="40" x2="35" y2="120"/>
+            <line x1="100" y1="40" x2="82" y2="120"/>
+            <line x1="140" y1="40" x2="130" y2="120"/>
+            <line x1="180" y1="40" x2="178" y2="120"/>
+            <line x1="220" y1="40" x2="225" y2="120"/>
+            <line x1="30" y1="80" x2="255" y2="80"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="wrap">
+      <div class="stat"><b>On-Grid</b><span>Lower bills, no big battery bank</span></div>
+      <div class="stat"><b>Off-Grid</b><span>Independent power, anywhere</span></div>
+      <div class="stat"><b>Hybrid</b><span>Solar, battery and grid together</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="founder-photo">
+      <div class="frame"><img src="images/founder.jpg" alt="Himanshu Gupta, Founder and CEO of RC Solar Solution"></div>
+      <div class="cap">
+        <b>Himanshu Gupta</b>
+        <span>Founder &amp; CEO</span>
+      </div>
+    </div>
+    <div class="about-text">
+      <div class="kicker">Who We Are</div>
+      <h2>Built to make solar simple for everyday customers</h2>
+      <p>RC Solar Solution is a solar energy solutions company founded on 18 March 2026 by Himanshu Gupta. We work with residential, commercial and industrial customers across Uttar Pradesh, focused on quality installation, honest service and long-term relationships rather than one-time sales.</p>
+      <p>Every project starts the same way — understanding how much electricity you actually use, and what your roof or site can support — before we recommend a system.</p>
+      <div class="founded-badge"><span class="dot"></span> Founded 18 March 2026 · Bisanda, Banda, UP</div>
+    </div>
+  </div>
+</section>
+
+<section class="solutions" id="solutions">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Our Solar Solutions</div>
+      <h2>Three ways to go solar</h2>
+      <p>The right system depends on your grid connection, your budget and whether you need backup power. Here's how the three main options compare.</p>
+    </div>
+    <div class="sol-grid">
+      <div class="sol-card on">
+        <span class="tag">ON-GRID</span>
+        <h3>Connected to the grid</h3>
+        <p>Generate your own electricity and cut your monthly bill, without needing a large battery bank. Best for properties that already have a stable grid connection.</p>
+        <ul>
+          <li>Residential buildings, shops, offices</li>
+          <li>Commercial &amp; industrial establishments</li>
+          <li>Efficient use of rooftop space</li>
+        </ul>
+      </div>
+      <div class="sol-card off">
+        <span class="tag">OFF-GRID</span>
+        <h3>Independent of the grid</h3>
+        <p>Panels, inverter, battery, mounting structure and electrical protection working as one system — built for places without reliable grid electricity.</p>
+        <ul>
+          <li>Farms &amp; rural or remote areas</li>
+          <li>Homes needing independent power</li>
+          <li>Backup applications</li>
+        </ul>
+      </div>
+      <div class="sol-card hybrid">
+        <span class="tag">HYBRID</span>
+        <h3>Solar, battery and grid</h3>
+        <p>Use solar power directly, store the excess in batteries, and fall back on the grid when needed — for the best balance of savings and reliability.</p>
+        <ul>
+          <li>Homes, offices and shops needing backup</li>
+          <li>Better day-to-day energy management</li>
+          <li>Greater overall energy independence</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="segments">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Who We Serve</div>
+      <h2>Residential, commercial and industrial</h2>
+      <p>The same careful process, scaled to the size of your load.</p>
+    </div>
+    <div class="seg-row">
+      <div class="seg-item">
+        <h3>Residential</h3>
+        <p>Rooftop solar sized to your household's consumption and available roof area — on-grid, off-grid or hybrid, plus battery backup and ongoing maintenance.</p>
+      </div>
+      <div class="seg-item">
+        <h3>Commercial</h3>
+        <p>Solar for shops, offices, showrooms, schools, hotels and warehouses — with site assessment, system design, equipment selection and commissioning handled end to end.</p>
+      </div>
+      <div class="seg-item">
+        <h3>Industrial</h3>
+        <p>Larger rooftop and high-capacity on-grid or hybrid plants for heavier loads, with system monitoring and technical support built in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">How We Work</div>
+      <h2>From first call to years of support</h2>
+      <p>Seven steps, in order, from consultation through to ongoing maintenance.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <span class="num">01</span>
+        <div><h3>Solar Consultation</h3><p>We understand your electricity requirements and recommend a suitable solar configuration.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">02</span>
+        <div><h3>Site Survey</h3><p>Assessment of rooftop or installation area, shading, orientation and other site conditions.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">03</span>
+        <div><h3>System Design</h3><p>Solar capacity is planned according to your electricity consumption and site requirements.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">04</span>
+        <div><h3>Solar Installation</h3><p>Installation of solar panels, mounting structures, inverter, electrical protection and associated components.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">05</span>
+        <div><h3>Commissioning</h3><p>Testing and commissioning of the solar system after installation, so it's running exactly as designed.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">06</span>
+        <div><h3>Maintenance &amp; Support</h3><p>Troubleshooting, inspection and ongoing maintenance support for your installed solar system.</p></div>
+      </div>
+      <div class="service-row">
+        <span class="num">07</span>
+        <div><h3>Solar Upgrade</h3><p>Assistance with increasing system capacity or adding battery backup where technically suitable.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">Why RC Solar Solution</div>
+      <h2>What working with us looks like</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><h3>Customized solutions</h3><p>Every project is planned around your specific requirements and site conditions, not a fixed package.</p></div>
+      <div class="why-item"><h3>Complete service</h3><p>One team, from consultation and site survey through to installation and after-sales support.</p></div>
+      <div class="why-item"><h3>Three system types</h3><p>On-grid, off-grid and hybrid — so the recommendation fits your situation, not the other way around.</p></div>
+      <div class="why-item"><h3>Every customer type</h3><p>Residential, commercial and industrial projects, sized appropriately for each.</p></div>
+      <div class="why-item"><h3>Transparent communication</h3><p>We believe in honest conversations and long-term relationships over one-time sales.</p></div>
+      <div class="why-item"><h3>Clean energy, real impact</h3><p>Helping customers move toward renewable, sustainable power for the long run.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="mv">
+  <div class="wrap">
+    <div class="mv-panel">
+      <div class="label">OUR MISSION</div>
+      <p>To make clean, reliable and affordable solar energy accessible to every home and business.</p>
+    </div>
+    <div class="mv-panel">
+      <div class="label">OUR VISION</div>
+      <p>To become a trusted solar energy solutions provider for residential, commercial and industrial customers.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-info">
+      <h2>Let's talk about your roof</h2>
+      <p>Reach out for a free consultation — we'll walk through your electricity usage, your site, and which system makes the most sense.</p>
+      <ul class="contact-list">
+        <li><b>MOBILE / WHATSAPP</b> <a href="tel:+918933949840">+91 89339 49840</a></li>
+        <li><b>EMAIL</b> <a href="mailto:rcsolarsolution@gmail.com">rcsolarsolution@gmail.com</a></li>
+        <li><b>ADDRESS</b> <span>Baberu Road, Near Bus Stand, Bisanda, Banda, Uttar Pradesh, India</span></li>
+      </ul>
+    </div>
+    <div class="contact-card">
+      <div>
+        <div class="brand2"><img src="images/logo.jpg" alt="RC Solar Solution"><b>RC Solar Solution</b></div>
+        <h3>Switch to solar. Save energy. Build a sustainable future.</h3>
+      </div>
+      <a href="https://wa.me/918933949840" class="btn-primary">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 RC Solar Solution. Himanshu Gupta, Founder &amp; CEO.</span>
+    <span>On-Grid · Off-Grid · Hybrid Solar Solutions</span>
+  </div>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
